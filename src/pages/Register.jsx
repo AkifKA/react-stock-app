@@ -9,7 +9,7 @@ import RegisterForm, { registerSchema } from "../components/RegisterForm";
 import { Link } from "react-router-dom";
 import { Box } from "@mui/material";
 
-import useAuthCall from "../hooks/useAuthCall";
+import useAuthCall from "../hooks/useAuthHooks";
 
 const Register = () => {
   const { register } = useAuthCall();

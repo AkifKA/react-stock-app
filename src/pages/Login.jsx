@@ -11,9 +11,12 @@ import { Formik } from "formik";
 
 import { object, string } from "yup";
 
+import useAuthCall from "../hooks/useAuthHooks";
 import LoginForm from "../components/LoginForm";
 
 const Login = () => {
+  const { login } = useAuthCall();
+
   const loginScheme = object({
     email: string()
       .email("Please enter a valid email.")
