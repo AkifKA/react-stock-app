@@ -20,13 +20,13 @@ const Login = () => {
 
   const loginScheme = object({
     email: string()
-      .email("Lutfen valid bir email giriniz")
-      .required("Email zorunludur"),
-    password: string()
-      .required("password zorunludur")
-      .min(8, "password en az 8 karakter olmalıdır")
-      .max(20, "password en fazla 20 karakter olmalıdır")
-      .matches(/\d+/, "Password bir sayı içermelidir")
+      .email("Please enter a valid email.")
+      .required("Email is required"),
+    password: string("Password is required")
+      .required()
+      .min(8, "Password must be at least 8 characters")
+      .max(20, "Password must be a maximum of 20 characters")
+      .matches(/\d+/, "Password must contain a number.")
       .matches(/[a-z]/, "Password bir küçük harf içermelidir")
       .matches(/[A-Z]/, "Password bir büyük harf içermelidir")
       .matches(/[!,?{}><%&$#£+-.]+/, "Password bir özel karakter içermelidir"),
