@@ -14,6 +14,8 @@ import Typography from "@mui/material/Typography";
 import MenuListItems from "../components/MenuListItems";
 import { useSelector } from "react-redux";
 import useAuthCall from "../hooks/useAuthCall";
+import { Outlet } from "react-router-dom";
+import { blueGrey } from "@mui/material/colors";
 
 const drawerWidth = 200;
 
@@ -86,7 +88,7 @@ function Dashboard(props) {
             display: { xs: "block", sm: "none" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
-              width: drawerWidth,
+              backgroundColor: blueGrey[900],
             },
           }}
         >
@@ -99,6 +101,7 @@ function Dashboard(props) {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
+              backgroundColor: blueGrey[900],
             },
           }}
           open
@@ -115,6 +118,7 @@ function Dashboard(props) {
         }}
       >
         <Toolbar />
+        <Outlet />
       </Box>
     </Box>
   );
