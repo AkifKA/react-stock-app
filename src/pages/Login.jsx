@@ -11,7 +11,7 @@ import { Formik } from "formik";
 
 import { object, string } from "yup";
 
-import useAuthCall from "../hooks/useAuthHooks";
+import useAuthCall from "../hooks/useAuthCall";
 import LoginForm from "../components/LoginForm";
 
 const Login = () => {
