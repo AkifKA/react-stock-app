@@ -15,11 +15,8 @@ const Firms = () => {
   const handleClose = () => setOpen(false);
 
   useEffect(() => {
-    // getFirms()
     getStockData("firms");
   }, []);
-
-  console.log(firms);
 
   return (
     <div>
