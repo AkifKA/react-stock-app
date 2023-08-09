@@ -4,12 +4,12 @@ const stockSlice = createSlice({
   name: "stock",
 
   initialState: {
-    purchases: null,
-    sales: null,
-    brands: null,
-    firms: null,
-    products: null,
-    categories: null,
+    purchases: [],
+    sales: [],
+    brands: [],
+    firms: [],
+    products: [],
+    categories: [],
     loading: false,
     error: false,
   },
@@ -22,6 +22,14 @@ const stockSlice = createSlice({
       state.loading = false;
       state[url] = data;
     },
+    // getSuccessSales: (state, { payload }) => {
+    //   state.loading = false
+    //   state.sales = payload
+    // },
+    // getSuccesPurchase: (state, { payload }) => {
+    //   state.loading = false
+    //   state.purchases = payload
+    // },
 
     fetchFail: (state) => {
       state.loading = false;
