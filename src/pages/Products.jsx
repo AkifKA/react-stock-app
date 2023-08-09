@@ -8,7 +8,7 @@ import useStockCall from "../hooks/useStockCall";
 
 import * as React from "react";
 import Box from "@mui/material/Box";
-import { DataGrid, GridActionsCellItem } from "@mui/x-data-grid";
+import { DataGrid, GridActionsCellItem, GridToolbar } from "@mui/x-data-grid";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { btnStyle } from "../styles/globalStyle";
 
@@ -25,6 +25,7 @@ const Products = () => {
   });
 
   const handleOpen = () => setOpen(true);
+
   const handleClose = () => setOpen(false);
 
   const columns = [
@@ -79,21 +80,21 @@ const Products = () => {
       align: "center",
       minWidth: 50,
       flex: 1,
-      renderCell: ({ id }) => {
-        return (
-          <GridActionsCellItem
-            icon={<DeleteForeverIcon />}
-            label="Delete"
-            sx={btnStyle}
-            onClick={() => deleteStockData("products", id)}
-          />
-        );
-      },
+      renderCell: ({ id }) => (
+        <GridActionsCellItem
+          icon={<DeleteForeverIcon />}
+          label="Delete"
+          sx={btnStyle}
+          onClick={() => deleteStockData("products", id)}
+        />
+      ),
     },
   ];
 
   useEffect(() => {
     getStockData("products");
+    getStockData("categories");
+    getStockData("brands");
   }, []);
 
   return (
@@ -127,6 +128,7 @@ const Products = () => {
           }}
           pageSizeOptions={[5]}
           disableRowSelectionOnClick
+          slots={{ toolbar: GridToolbar }}
         />
       </Box>
     </div>
