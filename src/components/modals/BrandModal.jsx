@@ -4,10 +4,10 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import TextField from "@mui/material/TextField";
-import useStockCalls from "../../hooks/useStockCalls";
+import useStockCall from "../../hooks/useStockCall";
 
 export default function BrandModal({ open, setOpen, info, setInfo }) {
-  const { postBrand, putBrand } = useStockCalls();
+  const { postStockData, putStockData } = useStockCall();
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -18,9 +18,9 @@ export default function BrandModal({ open, setOpen, info, setInfo }) {
     e.preventDefault();
     setOpen(false);
     if (info.id) {
-      putBrand(info);
+      putStockData("brands", info);
     } else {
-      postBrand(info);
+      postStockData("brands", info);
     }
     setInfo({});
   };

@@ -5,11 +5,11 @@ import CardMedia from "@mui/material/CardMedia";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import EditIcon from "@mui/icons-material/Edit";
 import { CardHeader } from "@mui/material";
-import useStockCalls from "../hooks/useStockCalls";
-import { btnHoverStyle, flex } from "../styles/globalStyle";
+import useStockCall from "../hooks/useStockCall";
+import { btnStyle, flex } from "../styles/globalStyle";
 
 const BrandCard = ({ brand, setOpen, setInfo }) => {
-  const { deleteBrand } = useStockCalls();
+  const { deleteStockData } = useStockCall();
 
   return (
     <Card
@@ -33,15 +33,15 @@ const BrandCard = ({ brand, setOpen, setInfo }) => {
 
       <CardActions sx={flex}>
         <EditIcon
-          sx={btnHoverStyle}
+          sx={btnStyle}
           onClick={() => {
             setInfo(brand);
             setOpen(true);
           }}
         />
         <DeleteOutlineIcon
-          sx={btnHoverStyle}
-          onClick={() => deleteBrand(brand.id)}
+          sx={btnStyle}
+          onClick={() => deleteStockData("brands", brand.id)}
         />
       </CardActions>
     </Card>
