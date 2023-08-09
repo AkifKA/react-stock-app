@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import useStockCall from "../hooks/useStockCall";
 import FirmCard from "../components/FirmCard";
+import { flex } from "../styles/globalStyle";
 const Firms = () => {
   const { getStockData } = useStockCall();
 
@@ -20,7 +21,7 @@ const Firms = () => {
       </Typography>
       <Button variant="contained">New Firm</Button>
 
-      <Grid container>
+      <Grid container sx={flex}>
         {firms?.map((firm) => (
           <Grid item key={firm.id}>
             <FirmCard firm={firm} />
