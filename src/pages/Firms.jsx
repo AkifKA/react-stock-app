@@ -19,7 +19,10 @@ const Firms = () => {
   });
 
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleClose = () => {
+    setOpen(false);
+    setInfo({});
+  };
 
   useEffect(() => {
     getStockData("firms");
