@@ -3,13 +3,33 @@ import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PaymentsIcon from "@mui/icons-material/Payments";
 import { amber, deepPurple, pink } from "@mui/material/colors";
+import useStockCall from "../hooks/useStockCall";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const KpiCards = () => {
+  const { sales, purchases } = useSelector((state) => state.stock);
+  const { getStockData } = useStockCall();
+
+  useEffect(() => {
+    getStockData("sales");
+    getStockData("purchases");
+  }, []);
+  const totalSales = sales
+    .map((item) => Number(item.price_total))
+    .reduce((acc, value) => acc + value, 0);
+
+  const totalPurchases = purchases
+    .map((item) => Number(item.price_total))
+    .reduce((acc, value) => acc + value, 0);
+
+  const totalProfit = totalSales - totalPurchases;
+
   const data = [
     {
       id: 1,
       title: "sales",
-      value: "$40000",
+      value: `$${totalSales}`,
       icon: <MonetizationOnIcon sx={{ fontSize: "2.3rem" }} />,
       color: deepPurple[600],
       bgColor: deepPurple[100],
@@ -17,7 +37,7 @@ const KpiCards = () => {
     {
       id: 2,
       title: "profit",
-      value: "$30000",
+      value: `$${totalProfit}`,
       icon: <ShoppingCartIcon sx={{ fontSize: "2.3rem" }} />,
       color: pink[600],
       bgColor: pink[100],
@@ -25,7 +45,7 @@ const KpiCards = () => {
     {
       id: 3,
       title: "purchases",
-      value: "$10000",
+      value: `$${totalPurchases}`,
       icon: <PaymentsIcon sx={{ fontSize: "2.3rem" }} />,
       color: amber[600],
       bgColor: amber[100],
