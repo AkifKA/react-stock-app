@@ -7,10 +7,33 @@ import FirmModal from "../components/modals/FirmModal";
 import useStockCall from "../hooks/useStockCall";
 import { flex } from "../styles/globalStyle";
 
+// import axios from "axios"
+// import { useDispatch, useSelector } from "react-redux"
+// import { fetchFail, getSuccess, fetchStart } from "../features/stockSlice"
+
 const Firms = () => {
+  // const { token } = useSelector((state) => state.auth)
+  // const dispatch = useDispatch()
+
+  // const getFirms = async () => {
+  //   const BASE_URL = "https://10001.fullstack.clarusway.com/"
+  //   dispatch(fetchStart())
+  //   const url = "firms"
+  //   try {
+  //     const { data } = await axios(`${BASE_URL}stock/firms/`, {
+  //       headers: { Authorization: `Token ${token}` },
+  //     })
+  //     dispatch(getSuccess({ data, url }))
+  //   } catch (error) {
+  //     console.log(error)
+  //     dispatch(fetchFail())
+  //   }
+  // }
+
   const { getStockData } = useStockCall();
   const { firms } = useSelector((state) => state.stock);
   const [open, setOpen] = useState(false);
+
   const [info, setInfo] = useState({
     name: "",
     phone: "",
@@ -19,14 +42,12 @@ const Firms = () => {
   });
 
   const handleOpen = () => setOpen(true);
-  const handleClose = () => {
-    setOpen(false);
-    setInfo({});
-  };
+  const handleClose = () => setOpen(false);
 
   useEffect(() => {
+    // getFirms()
     getStockData("firms");
-  }, []);
+  }, []); // eslint-disable-line
 
   return (
     <div>
@@ -34,7 +55,11 @@ const Firms = () => {
         Firm
       </Typography>
 
-      <Button variant="contained" onClick={handleOpen}>
+      <Button
+        variant="contained"
+        onClick={handleOpen}
+        sx={{ marginBottom: "1rem" }}
+      >
         New Firm
       </Button>
 

@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { modalStyle } from "../../styles/globalStyle";
@@ -12,7 +11,7 @@ export default function FirmModal({ open, handleClose, info, setInfo }) {
   //     phone: "",
   //     address: "",
   //     image: "",
-  //   });
+  //   })
 
   const { postStockData, putStockData } = useStockCall();
 
@@ -32,13 +31,15 @@ export default function FirmModal({ open, handleClose, info, setInfo }) {
     handleClose();
     setInfo({ name: "", phone: "", address: "", image: "" });
   };
-  console.log(info);
 
   return (
     <div>
       <Modal
         open={open}
-        onClose={handleClose}
+        onClose={() => {
+          handleClose();
+          setInfo({ name: "", phone: "", address: "", image: "" });
+        }}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >

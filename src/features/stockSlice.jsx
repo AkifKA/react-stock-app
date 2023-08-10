@@ -48,7 +48,7 @@ export const {
   fetchStart,
   getSuccess,
   fetchFail,
-  getProCatBrandsSuccess,
+  getProCatBrandSuccess,
   getAllStockSuccess,
 } = stockSlice.actions;
 export default stockSlice.reducer;

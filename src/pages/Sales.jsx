@@ -26,10 +26,6 @@ const Sales = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  useEffect(() => {
-    getProCatBrand();
-  }, []);
-
   const columns = [
     {
       field: "createds",
@@ -109,7 +105,7 @@ const Sales = () => {
   useEffect(() => {
     getProCatBrand();
     getStockData("sales");
-  }, []);
+  }, []); // eslint-disable-line
 
   return (
     <div>
