@@ -43,7 +43,8 @@ Routing and Page Navigation:
 React Router is used to enable navigation between different pages. Users can easily access different sections of the application.
 
 
-# Pages
+<img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3p6N2p2anZlNjE0Z3J5bWdsaG80eHY0YmNzOXVpcmNsbzBoZ2puZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/x8pZi2LRPNmpN6ZxQp/giphy.gif" align="center" width="800" />
+
 
 # Project Structure
 ```
