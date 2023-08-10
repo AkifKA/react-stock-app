@@ -1,43 +1,49 @@
 import { Card, Title, LineChart } from "@tremor/react";
-
-const chartdata = [
-  {
-    year: 1951,
-    "Population growth rate": 1.74,
-  },
-  {
-    year: 1952,
-    "Population growth rate": 1.93,
-  },
-  {
-    year: 1953,
-    "Population growth rate": 1.9,
-  },
-  {
-    year: 1954,
-    "Population growth rate": 1.98,
-  },
-  {
-    year: 1955,
-    "Population growth rate": 2,
-  },
-];
-
+import { useSelector } from "react-redux";
+import { Grid } from "@mui/material";
 const dataFormatter = (number) =>
-  `${Intl.NumberFormat("us").format(number).toString()}%`;
+  `${Intl.NumberFormat("us").format(number).toString()}`;
 
-const Charts = () => (
-  <Card>
-    <Title>Population growth rate (1951 to 2021)</Title>
-    <LineChart
-      className="mt-6"
-      data={chartdata}
-      index="year"
-      categories={["Population growth rate"]}
-      colors={["blue"]}
-      valueFormatter={dataFormatter}
-      yAxisWidth={40}
-    />
-  </Card>
-);
+const Charts = () => {
+  const { sales, purchases } = useSelector((state) => state.stock);
+
+  const salesData = sales.map((item) => ({
+    date: item.createds,
+    sale: Number(item.price_total),
+  }));
+
+  const purchasesData = purchases?.map((item) => ({
+    date: item.createds,
+    purchases: Number(item.price_total),
+  }));
+
+  return (
+    <Grid container justifyContent="center" spacing={2} mt={3}>
+      <Grid item xs={12} sm={12} md={6}>
+        <Card>
+          <Title>Total Sales</Title>
+          <LineChart
+            data={salesData}
+            index="date"
+            categories={["sale"]}
+            colors={["blue"]}
+            valueFormatter={dataFormatter}
+          />
+        </Card>
+      </Grid>
+      <Grid item xs={12} sm={12} md={6}>
+        <Card sx={{ p: 2 }}>
+          <Title>Total Purchases</Title>
+          <LineChart
+            index="date"
+            data={purchasesData}
+            categories={["purchases"]}
+            colors={["red"]}
+            valueFormatter={dataFormatter}
+          />
+        </Card>
+      </Grid>
+    </Grid>
+  );
+};
 export default Charts;
