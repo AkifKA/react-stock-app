@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
+import { useEffect } from "react";
 import Charts from "../components/Charts";
 import KpiCards from "../components/KpiCards";
-import { useEffect } from "react";
 import useStockCall from "../hooks/useStockCall";
 
 const Home = () => {
@@ -11,6 +11,7 @@ const Home = () => {
     getStockData("sales");
     getStockData("purchases");
   }, []);
+
   return (
     <div>
       <Typography variant="h4" color="error" mb={3}>

@@ -3,28 +3,20 @@ import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PaymentsIcon from "@mui/icons-material/Payments";
 import { amber, deepPurple, pink } from "@mui/material/colors";
-import useStockCall from "../hooks/useStockCall";
-import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 const KpiCards = () => {
   const { sales, purchases } = useSelector((state) => state.stock);
-  const { getStockData } = useStockCall();
 
-  useEffect(() => {
-    getStockData("sales");
-    getStockData("purchases");
-  }, []);
   const totalSales = sales
     .map((item) => Number(item.price_total))
-    .reduce((acc, value) => acc + value, 0);
+    .reduce((acc, val) => acc + val, 0);
 
   const totalPurchases = purchases
     .map((item) => Number(item.price_total))
-    .reduce((acc, value) => acc + value, 0);
+    .reduce((acc, val) => acc + val, 0);
 
   const totalProfit = totalSales - totalPurchases;
-
   const data = [
     {
       id: 1,
