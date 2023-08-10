@@ -91,9 +91,9 @@ const Products = () => {
   ];
 
   useEffect(() => {
-    // getStockData("products");
-    // getStockData("categories");
-    // getStockData("brands");
+    // getStockData("products")
+    // getStockData("categories")
+    // getStockData("brands")
 
     //! Promise All
     getProCatBrand();
@@ -121,7 +121,7 @@ const Products = () => {
           autoHeight
           rows={products}
           columns={columns}
-          pageSizeOptions={[5]}
+          pageSize={10}
           disableRowSelectionOnClick
           slots={{ toolbar: GridToolbar }}
           sx={{
