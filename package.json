@@ -1,27 +1,26 @@
 {
-  "name": "stock-app",
+  "name": "formik-yup-mui-redux",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
-    "@mui/icons-material": "^5.10.9",
-    "@mui/lab": "^5.0.0-alpha.106",
-    "@mui/material": "^5.10.12",
-    "@mui/x-data-grid": "^6.11.0",
-    "@reduxjs/toolkit": "^1.9.0",
-    "@tremor/react": "2.1.0",
-    "autoprefixer": "^10.4.14",
-    "axios": "^1.1.3",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/icons-material": "^5.11.11",
+    "@mui/lab": "^5.0.0-alpha.124",
+    "@mui/material": "^5.11.14",
+    "@mui/x-data-grid": "^6.0.3",
+    "@reduxjs/toolkit": "^1.9.3",
+    "@tremor/react": "^2.1.0",
+    "axios": "^1.3.4",
     "formik": "^2.2.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
-    "react-router-dom": "6.3",
+    "react-router-dom": "6.9.0",
     "react-scripts": "5.0.1",
-    "react-toastify": "^9.1.1",
+    "react-toastify": "^9.1.2",
     "redux-persist": "^6.0.0",
-    "yup": "^0.32.11"
+    "yup": "^1.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -48,10 +47,6 @@
     ]
   },
   "devDependencies": {
-    "tailwindcss": "^3.3.3"
-  },
-  "main": "index.js",
-  "repository": "https://github.com/AkifKA/stock-app.git",
-  "author": "Mehmet Akif Karaöz <karaozmehmetakif@gmail.com>",
-  "license": "MIT"
+    "tailwindcss": "^3.3.0"
+  }
 }
