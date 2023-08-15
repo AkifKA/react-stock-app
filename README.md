@@ -1,7 +1,11 @@
-## Overview of Stock Project:
+# Overview of Stock Project:
 
+The Stock Project is a web-based application developed to manage and track various processes for businesses, aiming to simplify tasks such as inventory tracking, purchasing, and sales operations. And it is online single page web application that enables you to manage orders and inventory with ability to get, add, edit, or delete products, firms, brands, sales, and purchases. 
 
-The Stock Project is a web-based application developed to manage and track various processes for businesses, aiming to simplify tasks such as inventory tracking, purchasing, and sales operations. And it is online single page web application that enables you to manage orders and inventory with ability to get, add, edit, or delete products, firms, brands, sales, and purchases. Technical Stack: HTML, CSS, JavaScript, React, and Material.UI in frontend, Python Django for CRUD operations and authentication-authorization in backend and React context and Redux Toolkit for state management. Below is an overview of the main components and features of the project:
+# Technical Stack:
+HTML, CSS, JavaScript, React, and Material.UI in frontend, Python Django for CRUD operations and authentication-authorization in backend and React context and Redux Toolkit for state management.
+
+### Below is an overview of the main components and features of the project:
 
 User Registration and Login:
 Users can create accounts and log in to the system. This allows each user to manage their own stocks.
